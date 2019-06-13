@@ -1,6 +1,9 @@
 'use strict'
 
 import { app, BrowserWindow } from 'electron'
+import handleMessage from './event/message'
+import createMenu from './event/menu'
+import createTray from './event/tary'
 
 /**
  * Set `__static` path to static files in production
@@ -32,10 +35,9 @@ function createWindow () {
       backgroundThrottling: false
     }
   }
-
   if (process.platform === 'win32') {
     options.show = true
-    options.frame = false
+    // options.frame = false
     options.backgroundColor = '#3f3c37'
   }
   /**
@@ -45,12 +47,22 @@ function createWindow () {
 
   mainWindow.loadURL(winURL)
 
+  // console.log('------->>>>>>>>>')
+  // console.log(global.mainId)
+  // console.log(mainWindow.id)
+  global.mainId = mainWindow.id
   mainWindow.on('closed', () => {
     mainWindow = null
   })
 }
 
-app.on('ready', createWindow)
+app.on('ready', () => {
+  Promise.resolve()
+    .then(() => createWindow())
+    .then(() => handleMessage())
+    .then(() => createMenu())
+    .then(() => createTray())
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

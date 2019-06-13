@@ -23,7 +23,7 @@ export const constantRoutes = [
     children: [
       {
         path: '/second',
-        component: require('@/views/second').default
+        component: require('@/views/Window').default
       }
     ]
   },
@@ -34,18 +34,18 @@ export const constantRoutes = [
     children: [
       {
         path: '/third',
-        component: require('@/views/second').default
+        component: require('@/views/Window').default
       }
     ]
   },
   {
-    path: '/fourth',
+    path: '/dialog',
     component: Layout,
     name: '弹窗',
     children: [
       {
-        path: '/fourth',
-        component: require('@/views/second').default
+        path: '/dialog',
+        component: require('@/views/Dialog').default
       }
     ]
   }

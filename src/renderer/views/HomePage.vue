@@ -1,11 +1,28 @@
 <template>
   <div>
-    <a-button type="primary">盘他</a-button>
+    <p>node版本是：{{ nodeVersion }}</p>
+    <p>chrome版本是：{{ chromeVersion }}</p>
+    <p>electron版本是：{{ electronVersion }}</p>
   </div>
 </template>
 <script>
   export default {
     name: 'home-page',
+    data () {
+      return {
+      }
+    },
+    computed: {
+      nodeVersion () {
+        return process.versions.node
+      },
+      chromeVersion () {
+        return process.versions.chrome
+      },
+      electronVersion () {
+        return process.versions.electron
+      }
+    },
     components: {},
     methods: {
     }

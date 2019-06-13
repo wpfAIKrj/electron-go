@@ -5,9 +5,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'electron-wang'
+import listenerNetWork from './event/network'
+export default {
+  name: 'electron-wang',
+  created () {
+    console.log(this.$electron)
+    listenerNetWork()
   }
+}
 </script>
 
 <style>

@@ -1,6 +1,6 @@
 # electron-wang
 
-> An electron-vue project
+> 采用了electron-vue的脚手架搭建项目，熟悉一下electron里面的一些API和操作，比如弹窗，新建窗口，进程通信，打印等，一边学习，一边在这个项目试试手。
 
 #### Build Setup
 
